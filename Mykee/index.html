@@ -244,15 +244,6 @@
   </ul>
 </nav>
 </header> 
-<script>
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-</script>
-
     <section id="about" class="bg-cream py-24 px-6 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
       <div
         class="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center"
@@ -691,7 +682,7 @@
       />
     </div>
     <!-- GSH STATIC SECTION FULL WIDTH PINK -->
-    <section id="gsh-static" class="w-full bg-[#f7c6c6] py-16 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+    <section id="gsh-static" class="w-full bg-[#f7c6c6] py-16 opacity-100 translate-y-0">
       <div class="max-w-7xl mx-auto px-6">
         <h4 class="font-playfair text-2xl font-semibold text-olive mb-6">
           GSH Static
@@ -1140,6 +1131,42 @@
               class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
             />
           </div>
+                    <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (63).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (64).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (65).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (66).png"
+              alt="GSH Static 67"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -1207,7 +1234,7 @@
         <!-- Buttons BELOW the PDF card -->
         <div class="flex gap-3 mt-4 z-10">
           <a 
-            href="files/DE GUZMAN, MYKEE G._" 
+            href="images/files/DE GUZMAN, MYKEE G._" 
             download 
             class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
           >
@@ -1227,7 +1254,7 @@
 
 <script>
   function previewPDF() {
-    const pdfUrl = "files/DE GUZMAN, MYKEE G._"; // your PDF path
+    const pdfUrl = "images/files/DE GUZMAN, MYKEE G._"; // your PDF path
     const modal = document.getElementById("pdfModal");
     const frame = document.getElementById("pdfFrame");
 
@@ -1288,6 +1315,13 @@
 
   document.addEventListener("keydown", e => {
     if (e.key === "Escape") closeModal();
+  });
+<!-- Hamburger Icon -->
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
   });
 </script>
 
