@@ -1216,34 +1216,20 @@
             class="w-full h-full"
           ></iframe>
         </div>
+        <!-- Preview Modal -->
+        <div id="pdfModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+          <div class="bg-white rounded-xl w-11/12 lg:w-3/4 h-[80%] relative flex flex-col">
+            
+            <!-- Close button -->
+            <button onclick="closePDF()" class="absolute top-4 right-4 text-white bg-red-600 px-3 py-1 rounded hover:bg-red-700">
+              Close
+            </button>
+            
+            <!-- PDF Viewer -->
+            <iframe id="pdfFrame" src="" class="w-full h-full rounded-b-xl"></iframe>
+          </div>
 
-<!-- A4 Preview Modal -->
-<div
-  id="pdfModal"
-  class="fixed inset-0 z-50 hidden bg-black/90 flex items-center justify-center"
->
-  <!-- A4 Container -->
-  <div
-    class="relative bg-black p-3 rounded-xl
-           w-[90vw] max-w-[420px]
-           aspect-[210/297]"
-  >
-    <!-- Close button -->
-    <button
-      onclick="closePDF()"
-      class="absolute -top-4 -right-4 z-50
-             bg-red-600 text-white px-3 py-1 rounded-full"
-    >
-      ✕
-    </button>
-
-    <!-- PDF -->
-    <iframe
-      id="pdfFrame"
-      class="w-full h-full bg-white rounded-lg"
-    ></iframe>
-  </div>
-</div>
+        </div>
 
         <!-- Buttons BELOW the PDF card -->
         <div class="flex gap-3 mt-4 z-10">
@@ -1344,6 +1330,7 @@
     </footer>
   </body>
 </html>
+
 
 
 
