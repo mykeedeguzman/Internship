@@ -1210,11 +1210,10 @@
 
         <!-- PDF Card -->
         <div class="relative bg-white rounded-xl shadow-2xl overflow-hidden w-full h-[550px] lg:h-[700px] z-10">
-          <iframe 
-            src="files/DE GUZMAN, MYKEE G._" 
-            type="application/pdf" 
-            class="w-full h-full"
-          ></iframe>
+<iframe
+  id="pdfFrame"
+  class="w-[90%] h-[90%] bg-white rounded-xl"
+></iframe>
         </div>
 
         <!-- Preview Modal -->
@@ -1254,7 +1253,7 @@
 
 <script>
   function previewPDF() {
-    const pdfUrl = "files/DE GUZMAN, MYKEE G._.pdf"; // your PDF path
+    const pdfUrl = "files/DE GUZMAN, MYKEE G._"; // your PDF path
     const modal = document.getElementById("pdfModal");
     const frame = document.getElementById("pdfFrame");
 
@@ -1330,5 +1329,6 @@
     </footer>
   </body>
 </html>
+
 
 
