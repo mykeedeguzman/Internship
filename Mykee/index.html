@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DIY Creative Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: "#fff7e8",
+              peach: "#f7a7a3",
+              olive: "#6b8e23",
+              softblue: "#cfe6ee",
+              pinkbg: "#f792a4",
+            },
+            fontFamily: {
+              playfair: ["Playfair Display", "serif"],
+              poppins: ["Poppins", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Scrapbook torn paper effect using CSS */
+      .scrapbook-top::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 320px; /* MORE HEIGHT */
+        background: linear-gradient(to bottom, #fbfdfe 0%, transparent 100%);
+        clip-path: polygon(
+          0 0,
+          5% 20px,
+          10% 5px,
+          15% 25px,
+          20% 10px,
+          25% 30px,
+          30% 15px,
+          35% 25px,
+          40% 10px,
+          45% 30px,
+          50% 15px,
+          55% 25px,
+          60% 10px,
+          65% 30px,
+          70% 15px,
+          75% 25px,
+          80% 10px,
+          85% 30px,
+          90% 15px,
+          95% 25px,
+          100% 10px,
+          100% 0
+        );
+        z-index: 10;
+      }
+
+      .scrapbook-bottom::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 340px;
+        background: linear-gradient(to top, #cfe6ee 0%, transparent 100%);
+        clip-path: polygon(
+          0 100%,
+          5% calc(100% - 25px),
+          10% calc(100% - 10px),
+          15% calc(100% - 30px),
+          20% calc(100% - 15px),
+          25% calc(100% - 35px),
+          30% calc(100% - 20px),
+          35% calc(100% - 30px),
+          40% calc(100% - 15px),
+          45% calc(100% - 35px),
+          50% calc(100% - 20px),
+          55% calc(100% - 30px),
+          60% calc(100% - 15px),
+          65% calc(100% - 35px),
+          70% calc(100% - 20px),
+          75% calc(100% - 30px),
+          80% calc(100% - 15px),
+          85% calc(100% - 35px),
+          90% calc(100% - 20px),
+          95% calc(100% - 30px),
+          100% calc(100% - 15px),
+          100% 100%
+        );
+        z-index: 10;
+      }
+
+      /* Grid pattern for scrapbook background */
+      .grid-pattern {
+        background-image: linear-gradient(
+            to right,
+            #dc4436 5px,
+            transparent 1px
+          ),
+          linear-gradient(to bottom, #dc4436 5px, transparent 1px);
+        background-size: 100px 120px;
+      }
+      /* Marquee animation */
+      @keyframes marquee {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+      .animate-marquee {
+        display: inline-block;
+        animation: marquee 10s linear infinite;
+      }
+          .fade-up-section {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    </style>
+  </head>
+ <body class="bg-cream text-gray-800 scroll-smooth">
+
+<header>
+  <!-- Marquee -->
+  <div class="bg-[#dc4436] w-full overflow-hidden">
+    <div class="whitespace-nowrap animate-marquee py-2 text-white font-semibold text-lg">
+      Mykee De Guzman &nbsp; • &nbsp; Mykee De Guzman &nbsp; • &nbsp; Mykee De Guzman
+    </div>
+  </div>
+
+<nav class="sticky top-0 w-full bg-white/70 backdrop-blur-md shadow-md z-50">
+  <div class="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
+    <h1 class="font-playfair text-2xl font-semibold">Mykee De Guzman</h1>
+
+    <!-- Hamburger Button (Mobile) -->
+    <button
+      id="menuBtn"
+      class="lg:hidden text-gray-700 focus:outline-none"
+    >
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden lg:flex gap-3 items-center relative ml-4">
+      <!-- About -->
+      <li class="relative group">
+        <a href="#about" class="text-gray-700 text-sm font-semibold relative z-10 px-1 py-1">
+          About Me
+        </a>
+        <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+      </li>
+
+      <li class="relative group">
+        <a href="#role" class="text-gray-700 text-sm font-semibold relative z-10 px-1 py-1">
+          My Role
+        </a>
+        <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+      </li>
+
+      <li class="relative group">
+        <a href="#intern" class="text-gray-700 text-sm font-semibold relative z-10 px-1 py-1">
+          Intern
+        </a>
+        <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+      </li>
+
+      <!-- Gallery -->
+      <li class="relative group">
+        <a href="#gallery" class="flex items-center text-gray-700 text-sm font-semibold relative z-10 px-1 py-1">
+          Gallery
+          <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+        <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+
+        <ul class="absolute left-0 top-full mt-1 w-44 bg-white rounded-md shadow-lg py-2 hidden group-hover:block">
+          <li class="relative group">
+            <a href="#documentation" class="block px-4 py-2 text-gray-700 relative z-10">
+              Documentation
+            </a>
+            <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+          </li>
+          <li class="relative group">
+            <a href="#gsh-static" class="block px-4 py-2 text-gray-700 relative z-10">
+              GSH Static
+            </a>
+            <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+          </li>
+        </ul>
+      </li>
+
+      <li class="relative group">
+        <a href="#resume" class="text-gray-700 text-sm font-semibold relative z-10 px-1 py-1">
+          My Resume
+        </a>
+        <span class="absolute inset-0 bg-[#f7c6c6] rotate-[-2deg] opacity-50 hidden group-hover:block z-0 rounded-sm"></span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mobile Menu -->
+  <ul
+    id="mobileMenu"
+    class="lg:hidden hidden flex-col gap-2 px-6 pb-4 bg-white/90 backdrop-blur-md"
+  >
+    <li><a href="#about" class="block py-2 font-semibold text-gray-700">About Me</a></li>
+    <li><a href="#role" class="block py-2 font-semibold text-gray-700">My Role</a></li>
+    <li><a href="#intern" class="block py-2 font-semibold text-gray-700">Intern</a></li>
+
+    <!-- Mobile Gallery -->
+    <li>
+      <details>
+        <summary class="cursor-pointer py-2 font-semibold text-gray-700">
+          Gallery
+        </summary>
+        <ul class="pl-4 mt-2 space-y-2">
+          <li><a href="#documentation" class="block text-gray-600">Documentation</a></li>
+          <li><a href="#gsh-static" class="block text-gray-600">GSH Static</a></li>
+        </ul>
+      </details>
+    </li>
+
+    <li><a href="#resume" class="block py-2 font-semibold text-gray-700">My Resume</a></li>
+  </ul>
+</nav>
+</header> 
+<script>
+  const menuBtn = document.getElementById("menuBtn");
+  const mobileMenu = document.getElementById("mobileMenu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+</script>
+
+    <section id="about" class="bg-cream py-24 px-6 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+      <div
+        class="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center"
+      >
+        <div>
+          <h3 class="font-playfair text-4xl lg:text-5xl font-semibold mb-4">
+            About Me
+          </h3>
+          <p class="text-gray-600 leading-loose max-w-xl">
+            I am Mykee De Guzman. I specialize in creating clean, organized
+            designs while handling essential admin tasks that keep projects
+            running smoothly. I enjoy combining creativity with structure—making
+            sure things not only look good, but work efficiently.
+            <br /><br />
+            I’m detail-oriented, reliable, and always eager to learn new tools
+            and improve my skills. Whether it’s designing visuals or managing
+            day-to-day tasks, I aim to deliver quality and consistency in
+            everything I do.
+          </p>
+        </div>
+        <div class="relative max-w-md mx-auto">
+          <!-- paper background -->
+          <div
+            class="bg-[#f7c6c6] rounded-3xl p-4 shadow-[0_20px_40px_rgba(0,0,0,0.12)] rotate-[-1deg]"
+          >
+            <!-- image -->
+            <div
+              class="rounded-2xl overflow-hidden bg-gray-200 max-w-xs mx-auto"
+            >
+              <img
+                src="images/My Pictures/IMG_4461.JPG"
+                alt="My work"
+                class="w-auto max-h-96 object-contain mx-auto"
+              />
+            </div>
+          </div>
+
+          <!-- top tape -->
+          <span
+            class="absolute -top-5 left-1/2 -translate-x-1/2 w-24 h-7 bg-[#cfe6ee]/80 rotate-[-4deg] rounded-md backdrop-blur-sm"
+          ></span>
+
+          <!-- side tape -->
+          <span
+            class="absolute top-1/3 -right-6 w-20 h-6 bg-[#cfe6ee]/80 rotate-[8deg] rounded-md backdrop-blur-sm"
+          ></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="role" class="bg-gradient-to-b from-softblue to-white py-32 px-6 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
+        <div class="w-80 h-80 mx-auto rounded-full overflow-hidden bg-gray-300">
+          <img
+            src="images/My Pictures/IMG_2650.jpg"
+            alt="Profile"
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div class="text-center lg:text-left">
+          <h2
+            class="font-playfair text-4xl lg:text-5xl font-bold text-olive leading-loose max-w-xl"
+          >
+            Visual Design and<br />Administrative Support
+          </h2>
+
+          <p class="my-4 max-w-md mx-auto lg:mx-0 leading-loose max-w-xl">
+            I am a passionate and dedicated designer with experience in creating
+            visually engaging designs while efficiently handling administrative
+            tasks.
+          </p>
+
+          <a
+            href="#gsh-static"
+            class="inline-block bg-peach text-white px-8 py-3 rounded-full text-sm hover:bg-opacity-90 transition"
+          >
+            Explore My Works
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="intern"
+    class="relative bg-pinkbg grid-pattern py-20 sm:py-32 md:py-56 px-6 overflow-hidden scrapbook-top scrapbook-bottom"
+  >
+    <div class="relative z-20 max-w-7xl mx-auto">
+      <div class="relative flex justify-center mb-12 sm:mb-16">
+        <span
+          class="absolute -top-3 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#f7c6c6] opacity-70 rotate-[-3deg]"
+        ></span>
+
+        <h3
+          class="relative bg-[#fff7e8] px-8 sm:px-12 py-4 sm:py-5 shadow-md text-center font-playfair text-2xl sm:text-3xl lg:text-4xl font-semibold"
+        >
+          Internship Experience
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10">
+        <!-- CARD 1 -->
+        <div
+          class="relative bg-[#fff7e8] rounded-2xl p-6 sm:p-8 text-center shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl"
+        >
+          <!-- scotch tape (OVERLAPPING) -->
+          <span
+            class="absolute -top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#cfe6ee]/90 rotate-[-4deg] rounded-sm z-30 shadow-sm"
+          ></span>
+
+          <!-- paper grain / punit-punit -->
+          <div
+            class="absolute inset-0 bg-[radial-gradient(#00000014_1px,transparent_1px)] [background-size:6px_6px] opacity-30 pointer-events-none z-10 rounded-2xl"
+          ></div>
+
+          <!-- torn bottom edge -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-10 bg-[#fff7e8] [clip-path:polygon(0_0,5%_40%,10%_20%,15%_45%,20%_25%,25%_50%,30%_30%,35%_45%,40%_25%,45%_50%,50%_30%,55%_45%,60%_25%,65%_50%,70%_30%,75%_45%,80%_25%,85%_50%,90%_30%,95%_45%,100%_20%,100%_100%,0_100%)] z-20"
+          ></div>
+
+          <div class="relative z-20">
+            <h4 class="text-lg sm:text-xl font-semibold text-[#5a5a3d] my-3 sm:my-4">
+              Sun Wu Business and Manpower Solution Corp.
+            </h4>
+            <h5 class="text-xs sm:text-sm font-semibold italic text-[#5a5a3d] my-3 sm:my-4">
+              586-588 Quintin Paredes St. Binondo, Manila
+            </h5>
+            <p class="text-gray-600 text-sm sm:text-base">
+              Marketing Creative & Administrative Intern<br>August – December 2025
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div
+          class="relative bg-[#fff7e8] rounded-2xl p-6 sm:p-8 text-center shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl"
+        >
+          <!-- scotch tape (OVERLAPPING) -->
+          <span
+            class="absolute -top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#cfe6ee]/90 rotate-[-4deg] rounded-sm z-30 shadow-sm"
+          ></span>
+
+          <!-- paper grain / punit-punit -->
+          <div
+            class="absolute inset-0 bg-[radial-gradient(#00000014_1px,transparent_1px)] [background-size:6px_6px] opacity-30 pointer-events-none z-10 rounded-2xl"
+          ></div>
+
+          <!-- torn bottom edge -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-10 bg-[#fff7e8] [clip-path:polygon(0_0,5%_40%,10%_20%,15%_45%,20%_25%,25%_50%,30%_30%,35%_45%,40%_25%,45%_50%,50%_30%,55%_45%,60%_25%,65%_50%,70%_30%,75%_45%,80%_25%,85%_50%,90%_30%,95%_45%,100%_20%,100%_100%,0_100%)] z-20"
+          ></div>
+
+          <div class="relative z-20">
+            <h4 class="text-lg sm:text-xl font-semibold text-[#5a5a3d] my-3 sm:my-4">
+              Job Description and Responsibilities:
+            </h4>
+            <p class="text-gray-600 text-sm sm:text-base">
+              Assisted the marketing team in managing social media accounts and supporting
+              administrative tasks for multiple clients. Responsible for
+              content creation, social media monitoring, customer support, and
+              coordination of marketing activities to maintain brand presence
+              and engagement across platforms.
+            </p>
+          </div>
+        </div>
+
+        <!-- CARD 3 (Full width below) -->
+        <div
+          class="relative bg-[#fff7e8] rounded-2xl p-6 sm:p-8 text-center shadow-lg transition transform hover:-translate-y-1 hover:shadow-xl lg:col-span-2"
+        >
+          <!-- scotch tape (OVERLAPPING) -->
+          <span
+            class="absolute -top-5 left-1/2 -translate-x-1/2 w-20 h-6 bg-[#cfe6ee]/90 rotate-[-4deg] rounded-sm z-30 shadow-sm"
+          ></span>
+
+          <!-- paper grain / punit-punit -->
+          <div
+            class="absolute inset-0 bg-[radial-gradient(#00000014_1px,transparent_1px)] [background-size:6px_6px] opacity-30 pointer-events-none z-10 rounded-2xl"
+          ></div>
+
+          <!-- torn bottom edge -->
+          <div
+            class="absolute bottom-0 left-0 w-full h-10 bg-[#fff7e8] [clip-path:polygon(0_0,5%_40%,10%_20%,15%_45%,20%_25%,25%_50%,30%_30%,35%_45%,40%_25%,45%_50%,50%_30%,55%_45%,60%_25%,65%_50%,70%_30%,75%_45%,80%_25%,85%_50%,90%_30%,95%_45%,100%_20%,100%_100%,0_100%)] z-20"
+          ></div>
+
+          <div class="relative z-20">
+            <h4 class="text-lg sm:text-xl font-semibold text-[#5a5a3d] my-3 sm:my-4">
+              Key Tasks Assigned:
+            </h4>
+            <ul
+              class="list-disc list-inside text-gray-600 text-left space-y-2 text-sm sm:text-base"
+            >
+              <li>
+                Monitored and managed social media accounts for various
+                clients using Meta Business Suite, including assisting with
+                customer inquiries and reservations for clients such as
+                Ecoflex, SunCafe Manila, SunCafe Marina, SunWu, EcoBloc,
+                Doroci, Econ Global Corporation, XLime, Golden Seagulls Hotel,
+                and SunWu Corp.
+              </li>
+              <li>
+                Created static posts and reels for Golden Seagulls Hotel to
+                support marketing campaigns.
+              </li>
+              <li>
+                Served as a model/actor for client content, including reels
+                and promotional posts for Golden Seagulls Hotel, SunCafe
+                Manila, and Maple.
+              </li>
+              <li>
+                Cross-posted content across Facebook, Instagram, and TikTok
+                for clients including Golden Seagulls Hotel, SunCafe Manila,
+                Ecoflex, SunWu Corporation, and Econ Global Corporation.
+              </li>
+              <li>
+                Posted Facebook and Instagram stories for SunCafe Manila to
+                maintain daily engagement.
+              </li>
+              <li>
+                Prepared expense reports during events and coordinated with
+                suppliers for necessary requirements.
+              </li>
+              <li>
+                Scheduled two weeks' worth of Instagram posts for Golden
+                Seagulls Hotel.
+              </li>
+              <li>
+                Updated and maintained social media marketing calendars for
+                clients such as Ecoflex, Golden Seagulls Hotel, Econ Global
+                Corporation, XLime, and Doroci.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- GALLERY SECTION -->
+  <section
+    id="gallery"
+    class="relative bg-[#cfe6ee] pt-24 pb-4 md:pb-16 px-6
+          bg-[radial-gradient(#ffffff40_1px,transparent_1px)]
+          [background-size:14px_14px]
+          opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section"
+  >
+      <div class="max-w-7xl mx-auto">
+        <!-- SECTION TITLE -->
+        <div class="relative flex justify-center">
+          <span
+            class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-peach/70 rotate-[-3deg]"
+          ></span>
+
+          <h3
+            class="relative bg-white px-12 py-5 shadow-md font-playfair text-3xl lg:text-4xl font-semibold"
+          >
+            Gallery
+          </h3>
+        </div>
+      </div>
+    </section>
+    <!-- DOCUMENTATION SECTION FULL WIDTH BLUE -->
+    <section id="documentation" class="w-full bg-[#cfe6ee] py-16 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <h4 class="font-playfair text-2xl font-semibold text-olive mb-6">
+          Documentation
+        </h4>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4"
+        >
+          <!-- Images here -->
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/0bf71d41-9083-4445-9c0d-decf3d75e77b.jpg"
+              alt="Documentation 1"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/0c623fc3-0d82-4546-af43-e78419688bfc.jpg"
+              alt="Documentation 2"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/1525fe58-0033-4a4a-8514-75d2f2c7c631.jpg"
+              alt="Documentation 3"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/2a8452f4-b985-4ecf-9601-881fa4109e85.jpg"
+              alt="Documentation 4"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/4bcc99b2-d4a2-4d6a-b38c-52735be3ef17.jpg"
+              alt="Documentation 5"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/5b95d9b5-34f4-4a7f-9ecf-b7eea247fbd1.jpg"
+              alt="Documentation 6"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/6c341c0f-1b85-48d7-8b44-39159729de29.jpg"
+              alt="Documentation 7"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/7628838f-e8ad-4406-abf7-7d9eb1e46ae7.jpg"
+              alt="Documentation 8"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/8bd2cdbb-b9d8-412a-863b-34da63fe2580.jpg"
+              alt="Documentation 9"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/abee2614-70e9-4cd9-ba38-0b52ce96d400.jpg"
+              alt="Documentation 10"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/acd9e3bc-3012-419e-b628-e8e9ad0583df.jpg"
+              alt="Documentation 11"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/bc49ee43-3878-48a2-88cd-fbdb097dccb9.jpg"
+              alt="Documentation 12"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/d2ebda5f-0740-4ee0-a927-65e97cce12c4.jpg"
+              alt="Documentation 13"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/d3874191-794f-4f35-bc05-f4e9a504bb7a.jpg"
+              alt="Documentation 13"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/d926b9ef-5f8b-4256-905c-3ffda2cb0818.jpg"
+              alt="Documentation 14"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition"
+          >
+            <img
+              src="images/Documentation/3cc0b06b-fbba-4759-95be-7de5826ca3bd.jpg"
+              alt="Documentation 15"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ================= IMAGE POPUP MODAL ================= -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm"
+    >
+      <!-- Close Button -->
+      <button
+        id="closeModal"
+        class="absolute top-6 right-6 text-white text-4xl font-light hover:scale-110 transition"
+      >
+        &times;
+      </button>
+
+      <!-- Image -->
+      <img
+        id="modalImage"
+        src=""
+        alt="Preview"
+        class="max-w-[90%] max-h-[90%] rounded-xl shadow-2xl animate-scale"
+      />
+    </div>
+    <!-- GSH STATIC SECTION FULL WIDTH PINK -->
+    <section id="gsh-static" class="w-full bg-[#f7c6c6] py-16 opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+      <div class="max-w-7xl mx-auto px-6">
+        <h4 class="font-playfair text-2xl font-semibold text-olive mb-6">
+          GSH Static
+        </h4>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        >
+          <!-- Images here -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5.png"
+              alt="GSH Static"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (1).png"
+              alt="GSH Static 1"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images//GSH/GSH 4X5 (2).png"
+              alt="GSH Static 2"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (3).png"
+              alt="GSH Static 3"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (4).png"
+              alt="GSH Static 4"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (5).png"
+              alt="GSH Static 5"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (6).png"
+              alt="GSH Static 6"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (7).png"
+              alt="GSH Static 7"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (8).png"
+              alt="GSH Static 8"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (9).png"
+              alt="GSH Static 9"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (10).png"
+              alt="GSH Static 10"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (11).png"
+              alt="GSH Static 11"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (12).png"
+              alt="GSH Static 12"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (13).png"
+              alt="GSH Static 13"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (14).png"
+              alt="GSH Static 14"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (15).png"
+              alt="GSH Static 15"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <!-- 16–30 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (16).png"
+              alt="GSH Static 16"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (17).png"
+              alt="GSH Static 17"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (18).png"
+              alt="GSH Static 18"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (19).png"
+              alt="GSH Static 19"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (20).png"
+              alt="GSH Static 20"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (21).png"
+              alt="GSH Static 21"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (22).png"
+              alt="GSH Static 22"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (23).png"
+              alt="GSH Static 23"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (24).png"
+              alt="GSH Static 24"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (25).png"
+              alt="GSH Static 25"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <!-- 31–45 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (31).png"
+              alt="GSH Static 31"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (32).png"
+              alt="GSH Static 32"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (33).png"
+              alt="GSH Static 33"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (34).png"
+              alt="GSH Static 34"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (35).png"
+              alt="GSH Static 35"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+
+          <!-- 46–63 -->
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (46).png"
+              alt="GSH Static 46"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (47).png"
+              alt="GSH Static 47"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (48).png"
+              alt="GSH Static 48"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (49).png"
+              alt="GSH Static 49"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (50).png"
+              alt="GSH Static 50"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (51).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (52).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (53).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (54).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (55).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (56).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (57).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (58).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (59).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (60).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (61).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (62).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+          <div
+            class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition"
+          >
+            <img
+              src="images/GSH/GSH 4X5 (63).png"
+              alt="GSH Static 63"
+              class="popup-img w-full h-full object-cover hover:scale-105 transition duration-300"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SCRAPBOOK PDF SECTION ALIGNED -->
+    <section id="resume" class="w-full py-16 bg-[#fff7e8] opacity-0 translate-y-8 transition-all duration-[1500ms] ease-out fade-up-section">
+      <div class="max-w-7xl mx-auto px-6"> <!-- same max width as documentation -->
+    <div class="max-w-7xl mx-auto">
+        <!-- SECTION TITLE -->
+        <div class="relative flex justify-center">
+          <span
+            class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-peach/70 rotate-[-3deg]"
+          ></span>
+
+          <h3
+            class="relative bg-white px-12 py-5 shadow-md font-playfair text-3xl lg:text-4xl font-semibold"
+          >
+            My Resume
+          </h3>
+        </div>
+      </div>
+
+    <div class="relative flex flex-col lg:flex-row gap-6 mt-8">
+
+      <!-- Left Info / Sidebar -->
+      <div class="lg:w-1/3 bg-white rounded-xl shadow p-6 flex flex-col gap-4 z-10 relative">
+        <h5 class="text-lg font-semibold">Contact</h5>
+        <p><span class="font-semibold">Name:</span> Mykee De Guzman</p>
+        <p><span class="font-semibold">Phone:</span> +63 991 186 8202</p>
+        <p><span class="font-semibold">Location:</span> Valenzuela City, Philippines</p>
+        <p><span class="font-semibold">Email:</span> <a href="mailto:mykeedeguzman017@gmail.com" class="text-gray-800 hover:text-blue-500">mykeedeguzman017@gmail.com</a></p>
+        <p><span class="font-semibold">Facebook:</span> <a href="https://facebook.com/mykeedeguzman517" class="text-gray-800 hover:text-blue-500"> Mykee De Guzman</a></p>
+        <p><span class="font-semibold">Instagram:</span> <a href="https://instagram.com/m_dgzmn" class="text-gray-800 hover:text-blue-500">m_dgzmn</a></p>
+      </div>
+
+      <!-- Right PDF Scrapbook -->
+      <div class="lg:w-2/3 relative flex flex-col items-center">
+
+        <!-- Folder / Paper Background -->
+        <div class="absolute top-2 left-2 w-full h-full bg-yellow-100 rounded-xl shadow-lg rotate-[2deg] z-0"></div>
+        <div class="absolute -top-2 -left-2 w-full h-full bg-yellow-200 rounded-xl shadow-xl rotate-[-2deg] z-0"></div>
+
+        <!-- PDF Card -->
+        <div class="relative bg-white rounded-xl shadow-2xl overflow-hidden w-full h-[550px] lg:h-[700px] z-10">
+          <iframe 
+            src="files/DE GUZMAN, MYKEE G._" 
+            type="application/pdf" 
+            class="w-full h-full"
+          ></iframe>
+        </div>
+
+        <!-- Preview Modal -->
+        <div id="pdfModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+          <div class="bg-white rounded-xl w-11/12 lg:w-3/4 h-[80%] relative flex flex-col">
+            
+            <!-- Close button -->
+            <button onclick="closePDF()" class="absolute top-4 right-4 text-white bg-red-600 px-3 py-1 rounded hover:bg-red-700">
+              Close
+            </button>
+            
+            <!-- PDF Viewer -->
+            <iframe id="pdfFrame" src="" class="w-full h-full rounded-b-xl"></iframe>
+          </div>
+
+        </div>
+        <!-- Buttons BELOW the PDF card -->
+        <div class="flex gap-3 mt-4 z-10">
+          <a 
+            href="files/DE GUZMAN, MYKEE G._" 
+            download 
+            class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+          >
+            Download Resume
+          </a>
+          <button 
+            onclick="previewPDF()" 
+            class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition"
+          >
+            Preview Resume
+          </button>
+        </div>
+
+      </div>
+
+      </section>
+
+<script>
+  function previewPDF() {
+    const pdfUrl = "files/DE GUZMAN, MYKEE G._"; // your PDF path
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfFrame");
+
+    frame.src = pdfUrl; // set the PDF
+    modal.classList.remove("hidden"); // show modal
+    modal.classList.add("flex"); // make it flex to center
+  }
+
+  function closePDF() {
+    const modal = document.getElementById("pdfModal");
+    const frame = document.getElementById("pdfFrame");
+
+    frame.src = ""; // reset PDF
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  }
+
+  const sections = document.querySelectorAll('.fade-up-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        // Fade in when section enters viewport
+        entry.target.classList.remove('opacity-0', 'translate-y-8');
+        entry.target.classList.add('opacity-100', 'translate-y-0');
+        // No unobserve or fade out → stays visible
+      }
+    });
+  }, { threshold: 0.2 }); // trigger when 20% of section is visible
+
+  sections.forEach(section => observer.observe(section));
+
+    const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("modalImage");
+  const closeBtn = document.getElementById("closeModal");
+
+  document.querySelectorAll(".popup-img").forEach(img => {
+    img.addEventListener("click", () => {
+      modalImg.src = img.src;
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    });
+  });
+
+  function closeModal() {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    modalImg.src = "";
+    document.body.style.overflow = "";
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", e => {
+    if (e.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeModal();
+  });
+</script>
+
+    <footer class="bg-softblue py-8 px-6 text-center text-sm text-gray-700">
+      © 2025 Mykee De Guzman · All Rights Reserved
+    </footer>
+  </body>
+</html>
