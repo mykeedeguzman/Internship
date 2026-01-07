@@ -136,13 +136,6 @@
  <body class="bg-cream text-gray-800 scroll-smooth">
 
 <header>
-  <!-- <!-- Marquee -->
-  <div class="bg-[#dc4436] w-full overflow-hidden">
-    <div class="whitespace-nowrap animate-marquee py-2 text-white font-semibold text-lg">
-      Mykee De Guzman &nbsp; • &nbsp; Mykee De Guzman &nbsp; • &nbsp; Mykee De Guzman
-    </div>
-  </div> -->
-
 <nav class="sticky top-0 w-full bg-white/70 backdrop-blur-md shadow-md z-50">
   <div class="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
     <h1 class="font-playfair text-2xl font-semibold">Mykee De Guzman</h1>
@@ -249,22 +242,6 @@
         class="max-w-7xl mx-auto grid lg:grid-cols-[1.2fr_0.8fr] gap-10 items-center"
       >
         <div>
-          <script>
-          const text = "Mykee De Guzman";
-          const speed = 120; // typing speed (ms)
-          let index = 0;
-        
-          function typeEffect() {
-            if (index < text.length) {
-              document.getElementById("typing-name").textContent += text.charAt(index);
-              index++;
-              setTimeout(typeEffect, speed);
-            }
-          }
-        
-          window.addEventListener("load", typeEffect);
-        </script>
-
           <h3 class="font-playfair text-4xl lg:text-5xl font-semibold mb-4">
             <span id="typing-name"></span>
           </h3>
@@ -1343,6 +1320,20 @@
   menuBtn.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
   });
+
+          const text = "Mykee De Guzman";
+          const speed = 120; // typing speed (ms)
+          let index = 0;
+        
+          function typeEffect() {
+            if (index < text.length) {
+              document.getElementById("typing-name").textContent += text.charAt(index);
+              index++;
+              setTimeout(typeEffect, speed);
+            }
+          }
+        
+          window.addEventListener("load", typeEffect);
 </script>
 
     <footer class="bg-softblue py-8 px-6 text-center text-sm text-gray-700">
@@ -1350,6 +1341,7 @@
     </footer>
   </body>
 </html>
+
 
 
 
